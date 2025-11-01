@@ -31,7 +31,9 @@ In this lab, you will:
 
 🌐 Log File: Sample Zeek DNS JSON dataset used (not included here due to size constraints)
 
-✅ Place the DNS JSON log file in a directory accessible to Splunk for ingestion.
+[📥 Download DNS Log File](./dns_logs/dns.json)
+
+    Place the DNS JSON log file in a directory accessible to Splunk for ingestion.
 
 ---
 
@@ -103,10 +105,7 @@ Below are the captured analysis results from Splunk searches:
 
 All screenshots can be viewed in the 📁 screenshots/ folder.
 
-
-<sub>🔗 View Screenshot Folder</sub>
-
-<sub>🔗 View Screenshot Folder</sub>
+[🔗 View Screenshot Folder](./screenshots/)
 
 ---
 
