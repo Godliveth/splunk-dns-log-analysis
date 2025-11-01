@@ -29,9 +29,9 @@ In this lab, you will:
 
 ✅ Data Source: Zeek DNS log in JSON format
 
-🌐 Log File: Sample Zeek DNS JSON dataset used (not included here due to size constraints)
+🌐 Log File: Sample Zeek DNS JSON dataset used.
 
-[📥 Download Zeek DNS Log File](./splunk-dns-log-analysis/blob/main/Zeek%20DNS%20logs.json) 
+[📥 **Download DNS Log File**](https://github.com/Godliveth/splunk-dns-log-analysis/blob/main/Zeek%20DNS%20logs.json)
     
     Place the DNS JSON log file in a directory accessible to Splunk for ingestion.
 
