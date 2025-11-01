@@ -103,8 +103,10 @@ Below are the captured analysis results from Splunk searches:
 
 All screenshots can be viewed in the 📁 screenshots/ folder.
 
-<sub>🔗 View Screenshot Folder
-</sub>
+
+<sub>🔗 View Screenshot Folder</sub>
+
+<sub>🔗 View Screenshot Folder</sub>
 
 ---
 
