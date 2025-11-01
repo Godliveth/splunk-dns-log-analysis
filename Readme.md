@@ -13,13 +13,13 @@ This project demonstrates how a SOC Analyst investigates DNS activity using Splu
 
 In this lab, you will:
 
-Learn how to ingest and analyze DNS logs in Splunk.
+1. Learn how to ingest and analyze DNS logs in Splunk.
 
-Identify the most queried domain names and the most active clients.
+2. Identify the most queried domain names and the most active clients.
 
-Examine DNS query types to detect potential anomalies.
+3. Examine DNS query types to detect potential anomalies.
 
-Interpret results from a SOC perspective — linking DNS behavior to possible threats.
+4. Interpret results from a SOC perspective — linking DNS behavior to possible threats.
 
 ---
 
@@ -31,27 +31,27 @@ Interpret results from a SOC perspective — linking DNS behavior to possible th
 
 🌐 Log File: Sample Zeek DNS JSON dataset used (not included here due to size constraints)
 
-Place the DNS JSON log file in a directory accessible to Splunk for ingestion.
+✅ Place the DNS JSON log file in a directory accessible to Splunk for ingestion.
 
 ---
 
 # ⚙️ Steps to Upload DNS Log into Splunk
 
-✅ Go to Splunk Web → Settings → Add Data
+1. Go to Splunk Web → Settings → Add Data
 
-✅ Choose Upload and select your dns.json file
+2. Choose Upload and select your dns.json file
 
-✅ Set the following:
+3. Set the following:
 
-Source type: _json (or custom: dns)
+   a. Source type: _json (or custom: dns)
 
-Index: Create one named dns_lab
+   b. Index: Create one named dns_lab
 
-Click Next → Review → Submit
+   c. Click Next → Review → Submit
 
-Verify successful ingestion:
+   d. Verify successful ingestion:
 
-index=dns_lab | head 5
+       index=dns_lab | head 5
 
 ---
 
@@ -59,34 +59,35 @@ index=dns_lab | head 5
 
 ✅ 1. Identify the Most Frequently Queried Domain Names
 
-index=dns_lab sourcetype="_json"
-| stats count by query
-| sort -count
+    index=dns_lab sourcetype="_json"
+    | stats count by query
+    | sort -count
 
 ---
 
 ✅ 2. Find the Most Active Source IPs Generating DNS Traffic
 
-index=dns_lab sourcetype="_json"
-| stats count by "id.orig_h"
-| sort -count
+    index=dns_lab sourcetype="_json"
+    | stats count by "id.orig_h"
+    | sort -count
 
 ✅ 3. Breakdown of DNS Query Types (A, AAAA, CNAME, PTR)
 
-index=dns_lab sourcetype="_json"
-| stats count by qtype
+    index=dns_lab sourcetype="_json"
+    | stats count by qtype
 
 ---
 
 🧠 Detection Insights
 
-Observation	SOC Interpretation
-High number of queries to specific domains	Could indicate Command and Control (C2) beaconing or DNS tunneling.
-Single host generating unusually high DNS traffic	May suggest malware callback behavior or a misconfigured internal service.
-Large proportion of uncommon record types (e.g., PTR, TXT)	Possible network reconnaissance or data exfiltration attempts.
-Consistent query failure patterns (NXDOMAIN responses)	Might reflect malware using randomized domain generation (DGA).
+| Observation                                                    | SOC Interpretation                                                                 |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **High number of queries to specific domains**                 | Could indicate **Command and Control (C2) beaconing** or **DNS tunneling**.        |
+| **Single host generating unusually high DNS traffic**          | May suggest **malware callback behavior** or a **misconfigured internal service**. |
+| **Large proportion of uncommon record types (e.g., PTR, TXT)** | Possible **network reconnaissance** or **data exfiltration** attempts.             |
+| **Consistent query failure patterns (NXDOMAIN responses)**     | Might reflect **malware using randomized domain generation (DGA)**.                |
 
-These insights show how DNS activity can reveal potential threats when analyzed in Splunk — turning raw data into meaningful detection logic.
+    These insights show how DNS activity can reveal potential threats when analyzed in Splunk — turning raw data into meaningful detection logic.
 
 ---
 
@@ -94,11 +95,11 @@ These insights show how DNS activity can reveal potential threats when analyzed 
 
 Below are the captured analysis results from Splunk searches:
 
-Top Queried Domains
+1. Top Queried Domains
 
-Most Active User IPs
+2. Most Active User IPs
 
-DNS Query Type Breakdown
+3. DNS Query Type Breakdown
 
 All screenshots can be viewed in the 📁 screenshots/ folder.
 
